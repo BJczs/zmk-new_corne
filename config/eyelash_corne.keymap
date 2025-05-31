@@ -32,20 +32,21 @@ Ulož pod config/ jako eyelash_corne.keymap
             compatible = "zmk,behavior-tap-dance";
             display-name = "Shift/Caps Lock Tap Dance";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
+            bindings = <&kp LSHIFT>, <&kp CAPS>;
+            tapping-term-ms = <200>;
         };
 
         td_e: td_e {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&kp N9>, <&kp N3>;
+            bindings = <&kp N9>, <&kp N3>; // é, ě
             tapping-term-ms = <200>;
         };
 
         td_u: td_u {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&kp EQUAL>, <&kp LS(N9)>;
+            bindings = <&kp EQUAL>, <&kp LS(N9)>; // ú, ů
             tapping-term-ms = <200>;
         };
 
@@ -61,61 +62,109 @@ Ulož pod config/ jako eyelash_corne.keymap
         td_colon: td_colon {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&kp LS(DOT)>, <&kp SLASH>, <&kp LS(RBKT)>;
+            bindings = <&kp LS(DOT)>, <&kp SLASH>, <&kp LS(RBKT)>; // :, /, *
             tapping-term-ms = <200>;
+        };
+
+        lt_3: lt_3 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            bindings = <&mo>, <&kp>;
         };
     };
 
-    rgb_encoder: rgb_encoder { /* ... beze změny ... */ };
-    scroll_encoder: scroll_encoder { /* ... beze změny ... */ };
+    rgb_encoder: rgb_encoder {
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+    };
+
+    scroll_encoder: scroll_encoder {
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+        tap-ms = <100>;
+    };
 
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             display-name = "QWERTY_CZ";
-            // MAXIMÁLNĚ KONZERVATIVNÍ FORMÁTOVÁNÍ - POUZE JEDNA MEZERA MEZI TOKENY
             bindings = <
-&kp TAB &kp Q &kp W &td_e &cz_ht R GRAVE &cz_ht T LS(SEMI) &kp UP &cz_ht Z N7 &td_u &cz_ht I RBKT &cz_ht O SEMI &kp P &kp BSPC
-&td0 &cz_ht A SQT &cz_ht S N5 &cz_ht D LS(EQUAL) &kp F &kp G &kp LEFT &kp ENTER &kp RIGHT &kp H &kp J &kp K &kp L &td_colon &kp RET
-&kp LCTRL &cz_ht Y N6 &kp X &cz_ht C N4 &kp V &kp B &kp SPACE &kp DOWN &cz_ht N LS(MINUS) &kp M &cz_ht COMMA LS(N1) &cz_ht DOT LS(SLASH) &cz_ht MINUS LS(EQUAL) &kp ESC
-&kp LGUI &mo 1 < 3 &kp SPACE < 3 &kp ENTER &mo 2 &kp RALT
+                &kp TAB       &kp Q         &kp W         &td_e         &cz_ht R GRAVE &cz_ht T LS(SEMI) &trans
+                &kp UP        &cz_ht Z N7   &td_u         &cz_ht I RBKT &cz_ht O SEMI &kp P         &kp BSPC
+
+                &td0          &cz_ht A SQT  &cz_ht S N5   &cz_ht D LS(EQUAL) &kp F         &kp G         &trans
+                &kp LEFT      &kp H         &kp J         &kp K         &kp L         &td_colon     &kp RET
+
+                &kp LCTRL     &cz_ht Y N6   &kp X         &cz_ht C N4   &kp V         &kp B         &kp SPACE
+                &kp DOWN      &cz_ht N LS(MINUS) &kp M         &cz_ht COMMA LS(N1) &cz_ht DOT LS(SLASH) &cz_ht MINUS LS(EQUAL) &kp ESC
+
+                &kp LGUI      &mo 1         &lt_3 3 SPACE
+                &lt_3 3 ENTER &mo 2         &kp RALT
             >;
 
-             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
-        // Ostatní vrstvy by měly být formátovány stejně konzervativně
         lower_layer {
             display-name = "NUMBER";
             bindings = <
-&trans &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &mmv MOVE_UP &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp BSPC
-&trans &bt BT_CLR_ALL &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &mmv MOVE_LEFT &mkp LCLK &mmv MOVE_RIGHT &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp HOME &kp PG_UP
-&trans &rgb_ug RGB_OFF &rgb_ug RGB_ON &trans &trans &rgb_ug RGB_EFF &kp C_MUTE &mmv MOVE_DOWN &rgb_ug RGB_EFR &rgb_ug RGB_SPI &rgb_ug RGB_BRI &rgb_ug RGB_BRD &kp END &kp PG_DN
-&trans &trans &trans &kp INS &kp DEL &trans
+                &trans  &kp N1           &kp N2          &kp N3        &kp N4        &kp N5          &trans
+                &mmv MOVE_UP     &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp BSPC
+
+                &trans  &bt BT_CLR_ALL   &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3    &mmv MOVE_LEFT
+                &mkp LCLK       &mmv MOVE_RIGHT  &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
+
+                &trans  &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &trans        &trans        &rgb_ug RGB_EFF &kp C_MUTE
+                &mmv MOVE_DOWN  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
+
+                                         &trans        &trans        &trans
+                                         &kp INS          &kp DEL          &trans
             >;
+
             sensor-bindings = <&scroll_encoder>;
         };
 
         raise_layer {
             display-name = "SYMBOL";
             bindings = <
-&trans &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT &mmv MOVE_UP &kp CARET &kp AMPS &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
-&trans &bt BT_CLR &mkp LCLK &mkp MCLK &mkp RCLK &mkp MB4 &mmv MOVE_LEFT &mkp LCLK &mmv MOVE_RIGHT &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp BSLH &kp GRAVE
-&trans &out OUT_USB &out OUT_BLE &none &none &mkp MB5 &trans &mmv MOVE_DOWN &kp UNDER &kp PLUS &kp LBRC &kp RBRC &kp PIPE &kp TILDE
-&trans &trans &kp SPACE &kp RET &trans &trans
+                &trans  &kp EXCL      &kp AT        &kp HASH   &kp DLLR   &kp PRCNT       &trans
+                &mmv MOVE_UP     &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
+
+                &trans  &bt BT_CLR    &mkp LCLK     &mkp MCLK  &mkp RCLK  &mkp MB4        &mmv MOVE_LEFT
+                &mkp LCLK       &mmv MOVE_RIGHT  &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
+
+                &trans  &out OUT_USB  &out OUT_BLE  &none      &none      &mkp MB5        &trans
+                &mmv MOVE_DOWN  &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
+
+                                    &trans     &trans     &kp SPACE
+                                    &kp RET    &trans     &trans
             >;
+
             sensor-bindings = <&scroll_encoder>;
         };
 
         layer_3 {
             display-name = "Fn";
             bindings = <
-&studio_unlock &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &mmv MOVE_UP &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11
-&trans &trans &mkp LCLK &mkp MCLK &mkp RCLK &mkp MB4 &mmv MOVE_LEFT &mkp LCLK &mmv MOVE_RIGHT &bootloader &mkp LCLK &mkp MCLK &mkp RCLK &kp PRINTSCREEN &kp F12
-&trans &sys_reset &trans &bootloader &trans &mkp MB5 &kp C_MUTE &mmv MOVE_DOWN &trans &trans &bootloader &sys_reset &kp SCROLLLOCK &kp PAUSE_BREAK
-&trans &trans &trans &trans &trans &trans
+                &studio_unlock  &kp F1      &kp F2     &kp F3       &kp F4     &kp F5          &trans
+                &mmv MOVE_UP     &kp F6       &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
+
+                &trans          &trans      &mkp LCLK  &mkp MCLK    &mkp RCLK  &mkp MB4        &mmv MOVE_LEFT
+                &mkp LCLK       &mmv MOVE_RIGHT  &bootloader  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
+
+                &trans          &sys_reset  &trans     &bootloader  &trans     &mkp MB5        &kp C_MUTE
+                &mmv MOVE_DOWN  &trans       &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
+
+                                       &trans       &trans     &trans
+                                       &trans       &trans     &trans
             >;
+
             sensor-bindings = <&scroll_encoder>;
         };
     };
