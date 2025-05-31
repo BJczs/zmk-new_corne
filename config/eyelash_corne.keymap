@@ -1,6 +1,8 @@
-// eyelash_corne.keymap (DTS overlay)
-// Tenhle soubor patří do config/ (ne do boards/)
-// Zkontroluj, že je uložen jako “eyelash_corne.keymap” pod config/
+/*
+ * eyelash_corne.keymap (DTS overlay)
+ * Tento soubor patří do config/ (ne do boards/)
+ * Zkontroluj, že je uložen jako “eyelash_corne.keymap” pod config/
+ */
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -11,115 +13,115 @@
 
 / {
     behaviors {
-        // Stávající Tap Dance pro Shift / Caps
+        /* Tap Dance pro Shift / Caps Lock */
         td0: td0 {
             compatible = "zmk,behavior-tap-dance";
             display-name = "Shift/Caps Lock Tap Dance";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
+            bindings = <&kp LEFT_SHIFT &kp CAPS>;
         };
 
-        // Tap Dance pro české znaky:
+        /* Tap Dance pro české znaky */
         td_c_cz: td_c_cz {
             compatible = "zmk,behavior-tap-dance";
             display-name = "C/Č Tap Dance";
             #binding-cells = <0>;
-            bindings = <&kp C>, <&uc U010C>; // U+010C = Č
+            bindings = <&kp C &uc U010C>; /* U+010C = Č */
         };
         td_s_sz: td_s_sz {
             compatible = "zmk,behavior-tap-dance";
             display-name = "S/Š Tap Dance";
             #binding-cells = <0>;
-            bindings = <&kp S>, <&uc U0161>; // U+0161 = š
+            bindings = <&kp S &uc U0160>; /* U+0160 = Š */
         };
         td_z_zh: td_z_zh {
             compatible = "zmk,behavior-tap-dance";
             display-name = "Z/Ž Tap Dance";
             #binding-cells = <0>;
-            bindings = <&kp Z>, <&uc U017E>; // U+017E = ž
+            bindings = <&kp Z &uc U017D>; /* U+017D = Ž */
         };
         td_e_eh: td_e_eh {
             compatible = "zmk,behavior-tap-dance";
             display-name = "E/Ě Tap Dance";
             #binding-cells = <0>;
-            bindings = <&kp E>, <&uc U011A>; // U+011A = Ě
+            bindings = <&kp E &uc U011A>; /* U+011A = Ě */
         };
         td_y_yy: td_y_yy {
             compatible = "zmk,behavior-tap-dance";
             display-name = "Y/Ý Tap Dance";
             #binding-cells = <0>;
-            bindings = <&kp Y>, <&uc U00DD>; // U+00DD = Ý
+            bindings = <&kp Y &uc U00DD>; /* U+00DD = Ý */
         };
         td_n_nn: td_n_nn {
             compatible = "zmk,behavior-tap-dance";
             display-name = "N/Ň Tap Dance";
             #binding-cells = <0>;
-            bindings = <&kp N>, <&uc U0147>; // U+0147 = Ň
+            bindings = <&kp N &uc U0147>; /* U+0147 = Ň */
         };
         td_d_dd: td_d_dd {
             compatible = "zmk,behavior-tap-dance";
             display-name = "D/Ď Tap Dance";
             #binding-cells = <0>;
-            bindings = <&kp D>, <&uc U010E>; // U+010E = Ď
+            bindings = <&kp D &uc U010E>; /* U+010E = Ď */
         };
         td_r_rr: td_r_rr {
             compatible = "zmk,behavior-tap-dance";
             display-name = "R/Ř Tap Dance";
             #binding-cells = <0>;
-            bindings = <&kp R>, <&uc U0158>; // U+0158 = Ř
+            bindings = <&kp R &uc U0158>; /* U+0158 = Ř */
         };
 
-        // Tap Dance pro interpunkční znaky:
+        /* Tap Dance pro interpunkci a další znaky */
         td_comma_exc: td_comma_exc {
             compatible = "zmk,behavior-tap-dance";
             display-name = "Comma/Exclamation Tap Dance";
             #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp EXCL>; // , / !
+            bindings = <&kp COMMA &kp EXCL>; /* , / ! */
         };
         td_dot_qm: td_dot_qm {
             compatible = "zmk,behavior-tap-dance";
             display-name = "Dot/Question Tap Dance";
             #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp QMARK>; // . / ?
+            bindings = <&kp DOT &kp QMARK>; /* . / ? */
         };
         td_fslh_col: td_fslh_col {
             compatible = "zmk,behavior-tap-dance";
             display-name = "Slash/Colon Tap Dance";
             #binding-cells = <0>;
-            bindings = <&kp FSLH>, <&kp COLON>; // / / :
+            bindings = <&kp FSLH &kp COLON>; /* / / : */
         };
 
-        // Volitelné Tap Dance pro *, +, -:
+        /* Volitelné Tap Dance pro další znaky */
         td_sqt_ast: td_sqt_ast {
             compatible = "zmk,behavior-tap-dance";
             display-name = "Quote/Asterisk Tap Dance";
             #binding-cells = <0>;
-            bindings = <&kp SQT>, <&kp ASTRK>; // ' / *
+            bindings = <&kp SQT &kp ASTRK>; /* ' / * */
         };
         td_minus_und: td_minus_und {
             compatible = "zmk,behavior-tap-dance";
             display-name = "Minus/Underscore Tap Dance";
             #binding-cells = <0>;
-            bindings = <&kp MINUS>, <&kp UNDER>; // - / _
+            bindings = <&kp MINUS &kp UNDER>; /* - / _ */
         };
         td_equal_plus: td_equal_plus {
             compatible = "zmk,behavior-tap-dance";
             display-name = "Equal/Plus Tap Dance";
             #binding-cells = <0>;
-            bindings = <&kp EQUAL>, <&kp PLUS>; // = / +
+            bindings = <&kp EQUAL &kp PLUS>; /* = / + */
         };
     };
 
     rgb_encoder: rgb_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
-        bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+        bindings = <&rgb_ug RGB_BRI &rgb_ug RGB_BRD>;
     };
 
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
-        bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+        bindings = <&msc SCRL_DOWN &msc SCRL_UP>;
         tap-ms = <100>;
     };
 
