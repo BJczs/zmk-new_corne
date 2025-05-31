@@ -28,7 +28,7 @@ layers:
   - K
   - L
   - '&td_colon'
-  - {t: '''', s: '"'}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:apple-keyboard-control$$
   - {t: '6', h: Y, s: ^}
   - X
