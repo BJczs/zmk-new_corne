@@ -7,7 +7,6 @@ layers:
   - '&td_e'
   - {t: '`', h: R, s: '~'}
   - {t: Sft+;, h: T, s: 'Sft+:'}
-  - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:arrow-up-bold$$
   - {t: '7', h: Z, s: '&'}
   - '&td_u'
@@ -21,14 +20,15 @@ layers:
   - {t: Sft+=, h: D, s: Sft++}
   - F
   - G
-  - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:arrow-left-bold$$
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - $$mdi:arrow-right-bold$$
   - H
   - J
   - K
   - L
   - '&td_colon'
-  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '''', s: '"'}
   - $$mdi:apple-keyboard-control$$
   - {t: '6', h: Y, s: ^}
   - X
