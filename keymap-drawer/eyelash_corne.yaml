@@ -5,19 +5,19 @@ layers:
   - Q
   - W
   - '&td_e'
-  - {t: '`', h: R, s: '~'}
-  - {t: Sft+;, h: T, s: 'Sft+:'}
+  - {t: R, h: '`'}
+  - {t: T, h: Sft+;}
   - $$mdi:arrow-up-bold$$
-  - {t: '7', h: Z, s: '&'}
+  - {t: Y, h: '6'}
   - '&td_u'
-  - {t: ']', h: I, s: '}'}
-  - {t: ;, h: O, s: ':'}
+  - {t: I, h: ']'}
+  - {t: O, h: ;}
   - P
   - {t: '$$mdi:backspace$$', type: backspace}
   - '&td0'
-  - {t: '''', h: A, s: '"'}
-  - {t: '5', h: S, s: '%'}
-  - {t: Sft+=, h: D, s: Sft++}
+  - {t: A, h: ''''}
+  - {t: S, h: '5'}
+  - {t: D, h: Sft+=}
   - F
   - G
   - $$mdi:arrow-left-bold$$
@@ -28,25 +28,25 @@ layers:
   - K
   - L
   - '&td_colon'
-  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '''', s: '"'}
   - $$mdi:apple-keyboard-control$$
-  - {t: '6', h: Y, s: ^}
+  - {t: Z, h: '7'}
   - X
-  - {t: '4', h: C, s: $}
+  - {t: C, h: '4'}
   - V
   - B
   - $$mdi:keyboard-space$$
   - $$mdi:arrow-down-bold$$
-  - {t: Sft+-, h: N, s: Sft+_}
+  - {t: N, h: Sft+-}
   - M
-  - {t: Sft+1, h: ',', s: Sft+!}
-  - {t: Sft+/, h: ., s: 'Sft+?'}
-  - {t: Sft+=, h: '-', s: Sft++}
+  - {t: ',', h: Sft+1, s: <}
+  - {t: ., h: Sft+/, s: '>'}
+  - {t: '-', h: Sft+=, s: _}
   - $$mdi:keyboard-esc$$
   - LGUI
-  - '&mo 1 < 3'
-  - SPACE < 3
-  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - NUMBER
+  - {t: '$$mdi:keyboard-space$$', h: Fn}
+  - {t: '$$mdi:keyboard-return$$', h: Fn}
   - SYMBOL
   - $$mdi:apple-keyboard-option$$
   NUMBER:
@@ -93,7 +93,7 @@ layers:
   - END
   - PG DN
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - INS
   - $$mdi:backspace-reverse-outline$$
@@ -192,7 +192,7 @@ layers:
   - PAUSE BREAK
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {type: held}
+  - {type: held alternate}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
