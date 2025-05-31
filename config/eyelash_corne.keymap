@@ -35,154 +35,185 @@ Ulož pod config/ jako eyelash_corne.keymap
             tapping-term-ms = <200>;
         };
 
-        /* České znaky - hold-tap (tap=základní, hold=znak s háčkem/čárkou) - ZDE MĚNÍME #binding-cells */
-        // S: tap=s, hold=š (š na 5)
+        /* Základní behaviory pro jednotlivé stisky kláves */
+        // Tyto jsou nutné, aby je hold-tap mohl referencovat
+        kp_s_bh: kp_s_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp S>; };
+        kp_n5_bh: kp_n5_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp N5>; }; // š
+        kp_c_bh: kp_c_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp C>; };
+        kp_n4_bh: kp_n4_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp N4>; }; // č
+        kp_r_bh: kp_r_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp R>; };
+        kp_grave_bh: kp_grave_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp GRAVE>; }; // ř
+        kp_z_bh: kp_z_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp Z>; };
+        kp_n6_bh: kp_n6_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp N6>; }; // ž
+        kp_a_bh: kp_a_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp A>; };
+        kp_sqt_bh: kp_sqt_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp SQT>; }; // á
+        kp_i_bh: kp_i_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp I>; };
+        kp_rbkt_bh: kp_rbkt_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp RBKT>; }; // í
+        kp_o_bh: kp_o_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp O>; };
+        kp_semi_bh: kp_semi_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp SEMI>; }; // ó
+        kp_y_bh: kp_y_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp Y>; };
+        kp_n7_bh: kp_n7_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp N7>; }; // ý
+        kp_n_bh: kp_n_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp N>; };
+        kp_ls_minus_bh: kp_ls_minus_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp LS(MINUS)>; }; // ň
+        kp_t_bh: kp_t_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp T>; };
+        kp_ls_semi_bh: kp_ls_semi_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp LS(SEMI)>; }; // ť
+        kp_d_bh: kp_d_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp D>; };
+        kp_ls_equal_bh: kp_ls_equal_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp LS(EQUAL)>; }; // ď (použito i pro +)
+        kp_comma_bh: kp_comma_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp COMMA>; };
+        kp_ls_n1_bh: kp_ls_n1_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp LS(N1)>; }; // !
+        kp_dot_bh: kp_dot_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp DOT>; };
+        kp_ls_slash_bh: kp_ls_slash_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp LS(SLASH)>; }; // ?
+        kp_minus_bh: kp_minus_bh { compatible = "zmk,behavior-binding"; #binding-cells = <0>; bindings = <&kp MINUS>; };
+
+
+        /* České znaky - hold-tap (tap=základní, hold=znak s háčkem/čárkou) */
+        // S: tap=s, hold=š
         td_s: td_s {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>; // ZMĚNA Z <2> NA <0>
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp S &kp N5>;
+            bindings = <&kp_s_bh &kp_n5_bh>; // OD KAZDUD DEFINICI TYPU HOLD-TAP TOHLE ZMENENO
         };
 
-        // C: tap=c, hold=č (č na 4)
+        // C: tap=c, hold=č
         td_c: td_c {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>; // ZMĚNA
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp C &kp N4>;
+            bindings = <&kp_c_bh &kp_n4_bh>;
         };
 
-        // R: tap=r, hold=ř (ř na ` )
+        // R: tap=r, hold=ř
         td_r: td_r {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>; // ZMĚNA
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp R &kp GRAVE>;
+            bindings = <&kp_r_bh &kp_grave_bh>;
         };
 
-        // Z: tap=z, hold=ž (ž na 6)
+        // Z: tap=z, hold=ž
         td_z: td_z {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>; // ZMĚNA
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp Z &kp N6>;
+            bindings = <&kp_z_bh &kp_n6_bh>;
         };
 
-        // A: tap=a, hold=á (á na ' )
+        // A: tap=a, hold=á
         td_a: td_a {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>; // ZMĚNA
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp A &kp SQT>;
+            bindings = <&kp_a_bh &kp_sqt_bh>;
         };
 
-        // I: tap=i, hold=í (í na ])
+        // I: tap=i, hold=í
         td_i: td_i {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>; // ZMĚNA
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp I &kp RBKT>;
+            bindings = <&kp_i_bh &kp_rbkt_bh>;
         };
 
-        // O: tap=o, hold=ó (ó na ;)
+        // O: tap=o, hold=ó
         td_o: td_o {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>; // ZMĚNA
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp O &kp SEMI>;
+            bindings = <&kp_o_bh &kp_semi_bh>;
         };
 
-        // Y: tap=y, hold=ý (ý na 7)
+        // Y: tap=y, hold=ý
         td_y: td_y {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>; // ZMĚNA
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp Y &kp N7>;
+            bindings = <&kp_y_bh &kp_n7_bh>;
         };
 
-        // N: tap=n, hold=ň (ň na Shift+Minus)
+        // N: tap=n, hold=ň
         td_n: td_n {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>; // ZMĚNA
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp N &kp LS(MINUS)>;
+            bindings = <&kp_n_bh &kp_ls_minus_bh>;
         };
 
-        // T: tap=t, hold=ť (ť na Shift+Semicolon)
+        // T: tap=t, hold=ť
         td_t: td_t {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>; // ZMĚNA
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp T &kp LS(SEMI)>;
+            bindings = <&kp_t_bh &kp_ls_semi_bh>;
         };
 
-        // D: tap=d, hold=ď (ď na Shift+Equal)
+        // D: tap=d, hold=ď
         td_d: td_d {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>; // ZMĚNA
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp D &kp LS(EQUAL)>;
+            bindings = <&kp_d_bh &kp_ls_equal_bh>;
         };
 
         /* Interpunkce podle tvých požadavků */
-        // Vedle L: tap=:, hold=/, double-tap=* - tento je tap-dance, takže je OK
+        // Vedle L: tap=:, hold=/, double-tap=*
         td_colon: td_colon {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&kp LS(DOT)>, <&kp SLASH>, <&kp LS(RBKT)>; // : / * (opraveno / na SLASH, protože MINUS je pomlčka, a * je Shift+])
+            bindings = <&kp LS(DOT)>, <&kp SLASH>, <&kp LS(RBKT)>; // : / *
             tapping-term-ms = <200>;
         };
 
         // Čárka: tap=,, hold=!
         td_comma: td_comma {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>; // ZMĚNA
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp COMMA &kp LS(N1)>;
+            bindings = <&kp_comma_bh &kp_ls_n1_bh>;
         };
 
         // Tečka: tap=., hold=?
         td_dot: td_dot {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>; // ZMĚNA
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp DOT &kp LS(SLASH)>;
+            bindings = <&kp_dot_bh &kp_ls_slash_bh>;
         };
 
         // Pomlčka: tap=-, hold=+
         td_minus: td_minus {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>; // ZMĚNA
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp MINUS &kp LS(EQUAL)>;
+            bindings = <&kp_minus_bh &kp_ls_equal_bh>;
         };
     };
 
