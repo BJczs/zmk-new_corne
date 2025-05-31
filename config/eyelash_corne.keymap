@@ -18,7 +18,7 @@ Ulož pod config/ jako eyelash_corne.keymap
             tapping-term-ms = <200>;
         };
 
-        /* České znaky - tap-dance */
+        /* České znaky - tap-dance (tap=é, double-tap=ě; ú, double-tap=ů) - tyto jsou OK */
         // E: tap=é, double-tap=ě (é na 9, ě na 3 - CZ layout)
         td_e: td_e {
             compatible = "zmk,behavior-tap-dance";
@@ -35,7 +35,7 @@ Ulož pod config/ jako eyelash_corne.keymap
             tapping-term-ms = <200>;
         };
 
-        /* České znaky - hold-tap (tap=základní, hold=znak s háčkem/čárkou) */
+        /* České znaky - hold-tap (tap=základní, hold=znak s háčkem/čárkou) - ZDE JE POTŘEBA OPRAVIT BINDINGS */
         // S: tap=s, hold=š (š na 5)
         td_s: td_s {
             compatible = "zmk,behavior-hold-tap";
@@ -43,7 +43,7 @@ Ulož pod config/ jako eyelash_corne.keymap
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp S>, <&kp N5>;
+            bindings = <&kp S &kp N5>; // OPRAVENO: jedna závorka, bez čárky
         };
 
         // C: tap=c, hold=č (č na 4)
@@ -53,7 +53,7 @@ Ulož pod config/ jako eyelash_corne.keymap
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp C>, <&kp N4>;
+            bindings = <&kp C &kp N4>; // OPRAVENO
         };
 
         // R: tap=r, hold=ř (ř na ` )
@@ -63,7 +63,7 @@ Ulož pod config/ jako eyelash_corne.keymap
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp R>, <&kp GRAVE>; // Ř je na klávese ` (grave accent) na CZ layoutu
+            bindings = <&kp R &kp GRAVE>; // OPRAVENO
         };
 
         // Z: tap=z, hold=ž (ž na 6)
@@ -73,7 +73,7 @@ Ulož pod config/ jako eyelash_corne.keymap
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp Z>, <&kp N6>;
+            bindings = <&kp Z &kp N6>; // OPRAVENO
         };
 
         // A: tap=a, hold=á (á na ' )
@@ -83,7 +83,7 @@ Ulož pod config/ jako eyelash_corne.keymap
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp A>, <&kp SQT>; // Á je na klávese ' (apostrophe) na CZ layoutu
+            bindings = <&kp A &kp SQT>; // OPRAVENO
         };
 
         // I: tap=i, hold=í (í na ])
@@ -93,7 +93,7 @@ Ulož pod config/ jako eyelash_corne.keymap
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp I>, <&kp RBKT>; // Í je na klávese ] (right bracket) na CZ layoutu
+            bindings = <&kp I &kp RBKT>; // OPRAVENO
         };
 
         // O: tap=o, hold=ó (ó na ;)
@@ -103,7 +103,7 @@ Ulož pod config/ jako eyelash_corne.keymap
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp O>, <&kp SEMI>; // Ó je na klávese ; (semicolon) na CZ layoutu
+            bindings = <&kp O &kp SEMI>; // OPRAVENO
         };
 
         // Y: tap=y, hold=ý (ý na 7)
@@ -113,7 +113,7 @@ Ulož pod config/ jako eyelash_corne.keymap
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp Y>, <&kp N7>;
+            bindings = <&kp Y &kp N7>; // OPRAVENO
         };
 
         // N: tap=n, hold=ň (ň na Shift+Minus)
@@ -123,7 +123,7 @@ Ulož pod config/ jako eyelash_corne.keymap
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp N>, <&kp LS(MINUS)>;
+            bindings = <&kp N &kp LS(MINUS)>; // OPRAVENO
         };
 
         // T: tap=t, hold=ť (ť na Shift+Semicolon)
@@ -133,7 +133,7 @@ Ulož pod config/ jako eyelash_corne.keymap
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp T>, <&kp LS(SEMI)>;
+            bindings = <&kp T &kp LS(SEMI)>; // OPRAVENO
         };
 
         // D: tap=d, hold=ď (ď na Shift+Equal)
@@ -143,11 +143,11 @@ Ulož pod config/ jako eyelash_corne.keymap
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp D>, <&kp LS(EQUAL)>;
+            bindings = <&kp D &kp LS(EQUAL)>; // OPRAVENO
         };
 
         /* Interpunkce podle tvých požadavků */
-        // Vedle L: tap=:, hold=/, double-tap=*
+        // Vedle L: tap=:, hold=/, double-tap=* - tento je tap-dance, takže je OK
         td_colon: td_colon {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -162,7 +162,7 @@ Ulož pod config/ jako eyelash_corne.keymap
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp COMMA>, <&kp LS(N1)>; // ! je Shift+1
+            bindings = <&kp COMMA &kp LS(N1)>; // OPRAVENO
         };
 
         // Tečka: tap=., hold=?
@@ -172,7 +172,7 @@ Ulož pod config/ jako eyelash_corne.keymap
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp DOT>, <&kp LS(SLASH)>; // ? je Shift+/
+            bindings = <&kp DOT &kp LS(SLASH)>; // OPRAVENO
         };
 
         // Pomlčka: tap=-, hold=+
@@ -182,7 +182,7 @@ Ulož pod config/ jako eyelash_corne.keymap
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp MINUS>, <&kp LS(EQUAL)>; // + je Shift+=
+            bindings = <&kp MINUS &kp LS(EQUAL)>; // OPRAVENO
         };
     };
 
@@ -198,14 +198,10 @@ Ulož pod config/ jako eyelash_corne.keymap
        &kp LCTRL     &td_a         &td_s         &td_d         &kp F         &kp G         &trans        &kp LEFT      &kp H         &kp J         &kp K         &kp L         &td_colon     &kp RET
     //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
        &td0          &td_z         &kp X         &td_c         &kp V         &kp B         &trans        &kp DOWN      &td_n         &kp M         &td_comma     &td_dot       &td_minus     &trans
-    //╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
+    //╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
                                    &kp LGUI      &mo 1         &kp SPACE     &kp RET       &mo 2         &kp RALT
     //                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
             >;
-            // Pokud jsi chtěl mít šipky a další klávesy v base layeru, ponechal jsem je, ale musel jsem přidat &trans, aby seděl počet kláves.
-            // Původní `&kp LEFT &kp SPACE &kp RIGHT` na druhém řádku a `&kp SPACE &kp DOWN` na třetím řádku byly umístěny nestandardně
-            // a narušovaly symetrii 7+7 kláves. Přesunul jsem je tam, kde je předpoklad 7 kláves na řadu.
-
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
@@ -218,7 +214,7 @@ Ulož pod config/ jako eyelash_corne.keymap
        &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans        &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &trans        &trans        &trans
     //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
        &kp LSHIFT    &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans
-    //╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
+    //╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
                                    &kp LGUI      &trans        &kp SPACE     &kp RET       &trans        &kp RALT
     //                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
             >;
@@ -234,7 +230,7 @@ Ulož pod config/ jako eyelash_corne.keymap
        &kp LCTRL     &trans        &trans        &trans        &trans        &trans        &trans        &kp LEFT      &kp MINUS     &kp EQUAL     &kp LBKT      &kp RBKT      &kp BSLH      &trans
     //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
        &kp LSHIFT    &trans        &trans        &trans        &trans        &trans        &trans        &kp DOWN      &trans        &kp UNDER     &kp PLUS      &kp LBRC      &kp PIPE      &trans
-    //╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
+    //╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
                                    &kp LGUI      &trans        &kp SPACE     &kp RET       &trans        &kp RALT
     //                           ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
             >;
