@@ -7,7 +7,7 @@ Ulož pod config/ jako eyelash_corne.keymap
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/outputs.h> // ZMĚNA Z .dtsi ZPĚT NA .h !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#include <dt-bindings/zmk/outputs.h> // Správně .h
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
@@ -39,21 +39,21 @@ Ulož pod config/ jako eyelash_corne.keymap
         td_e: td_e {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&kp N9>, <&kp N3>;
+            bindings = <&kp N9>, <&kp N3>; // é, ě
             tapping-term-ms = <200>;
         };
 
         td_u: td_u {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&kp EQUAL>, <&kp LS(N9)>;
+            bindings = <&kp EQUAL>, <&kp LS(N9)>; // ú, ů
             tapping-term-ms = <200>;
         };
 
         cz_ht: cz_ht {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
+            flavor = "tap-preferred"; // Tap = první parametr, Hold = druhý
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
             bindings = <&kp>, <&kp>;
@@ -62,7 +62,7 @@ Ulož pod config/ jako eyelash_corne.keymap
         td_colon: td_colon {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&kp LS(DOT)>, <&kp SLASH>, <&kp LS(RBKT)>;
+            bindings = <&kp LS(DOT)>, <&kp SLASH>, <&kp LS(RBKT)>; // :, /, *
             tapping-term-ms = <200>;
         };
     };
