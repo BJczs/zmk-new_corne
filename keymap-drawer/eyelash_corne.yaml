@@ -5,20 +5,20 @@ layers:
   - Q
   - W
   - '&td_e'
-  - '&td_r'
-  - '&td_t'
+  - {t: '`', h: R, s: '~'}
+  - {t: Sft+;, h: T, s: 'Sft+:'}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:arrow-up-bold$$
-  - '&td_y'
+  - {t: '7', h: Y, s: '&'}
   - '&td_u'
-  - '&td_i'
-  - '&td_o'
+  - {t: ']', h: I, s: '}'}
+  - {t: ;, h: O, s: ':'}
   - P
   - $$mdi:keyboard-esc$$
   - $$mdi:apple-keyboard-control$$
-  - '&td_a'
-  - '&td_s'
-  - '&td_d'
+  - {t: '''', h: A, s: '"'}
+  - {t: '5', h: S, s: '%'}
+  - {t: Sft+=, h: D, s: Sft++}
   - F
   - G
   - {t: '$$mdi:transfer$$', type: trans}
@@ -30,18 +30,18 @@ layers:
   - '&td_colon'
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - '&td0'
-  - '&td_z'
+  - {t: '6', h: Z, s: ^}
   - X
-  - '&td_c'
+  - {t: '4', h: C, s: $}
   - V
   - B
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:arrow-down-bold$$
-  - '&td_n'
+  - {t: Sft+-, h: N, s: Sft+_}
   - M
-  - '&td_comma'
-  - '&td_dot'
-  - '&td_minus'
+  - {t: Sft+1, h: ',', s: Sft+!}
+  - {t: Sft+/, h: ., s: 'Sft+?'}
+  - {t: Sft+=, h: '-', s: Sft++}
   - {t: '$$mdi:transfer$$', type: trans}
   - LGUI
   - lower
