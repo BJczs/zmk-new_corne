@@ -35,115 +35,115 @@ Ulož pod config/ jako eyelash_corne.keymap
             tapping-term-ms = <200>;
         };
 
-        /* České znaky - hold-tap (tap=základní, hold=znak s háčkem/čárkou) - ZDE JE POTŘEBA OPRAVIT BINDINGS */
+        /* České znaky - hold-tap (tap=základní, hold=znak s háčkem/čárkou) - ZDE MĚNÍME #binding-cells */
         // S: tap=s, hold=š (š na 5)
         td_s: td_s {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>; // ZMĚNA Z <2> NA <0>
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp S &kp N5>; // OPRAVENO: jedna závorka, bez čárky
+            bindings = <&kp S &kp N5>;
         };
 
         // C: tap=c, hold=č (č na 4)
         td_c: td_c {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>; // ZMĚNA
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp C &kp N4>; // OPRAVENO
+            bindings = <&kp C &kp N4>;
         };
 
         // R: tap=r, hold=ř (ř na ` )
         td_r: td_r {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>; // ZMĚNA
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp R &kp GRAVE>; // OPRAVENO
+            bindings = <&kp R &kp GRAVE>;
         };
 
         // Z: tap=z, hold=ž (ž na 6)
         td_z: td_z {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>; // ZMĚNA
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp Z &kp N6>; // OPRAVENO
+            bindings = <&kp Z &kp N6>;
         };
 
         // A: tap=a, hold=á (á na ' )
         td_a: td_a {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>; // ZMĚNA
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp A &kp SQT>; // OPRAVENO
+            bindings = <&kp A &kp SQT>;
         };
 
         // I: tap=i, hold=í (í na ])
         td_i: td_i {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>; // ZMĚNA
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp I &kp RBKT>; // OPRAVENO
+            bindings = <&kp I &kp RBKT>;
         };
 
         // O: tap=o, hold=ó (ó na ;)
         td_o: td_o {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>; // ZMĚNA
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp O &kp SEMI>; // OPRAVENO
+            bindings = <&kp O &kp SEMI>;
         };
 
         // Y: tap=y, hold=ý (ý na 7)
         td_y: td_y {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>; // ZMĚNA
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp Y &kp N7>; // OPRAVENO
+            bindings = <&kp Y &kp N7>;
         };
 
         // N: tap=n, hold=ň (ň na Shift+Minus)
         td_n: td_n {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>; // ZMĚNA
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp N &kp LS(MINUS)>; // OPRAVENO
+            bindings = <&kp N &kp LS(MINUS)>;
         };
 
         // T: tap=t, hold=ť (ť na Shift+Semicolon)
         td_t: td_t {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>; // ZMĚNA
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp T &kp LS(SEMI)>; // OPRAVENO
+            bindings = <&kp T &kp LS(SEMI)>;
         };
 
         // D: tap=d, hold=ď (ď na Shift+Equal)
         td_d: td_d {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>; // ZMĚNA
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp D &kp LS(EQUAL)>; // OPRAVENO
+            bindings = <&kp D &kp LS(EQUAL)>;
         };
 
         /* Interpunkce podle tvých požadavků */
@@ -158,31 +158,31 @@ Ulož pod config/ jako eyelash_corne.keymap
         // Čárka: tap=,, hold=!
         td_comma: td_comma {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>; // ZMĚNA
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp COMMA &kp LS(N1)>; // OPRAVENO
+            bindings = <&kp COMMA &kp LS(N1)>;
         };
 
         // Tečka: tap=., hold=?
         td_dot: td_dot {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>; // ZMĚNA
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp DOT &kp LS(SLASH)>; // OPRAVENO
+            bindings = <&kp DOT &kp LS(SLASH)>;
         };
 
         // Pomlčka: tap=-, hold=+
         td_minus: td_minus {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>; // ZMĚNA
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
-            bindings = <&kp MINUS &kp LS(EQUAL)>; // OPRAVENO
+            bindings = <&kp MINUS &kp LS(EQUAL)>;
         };
     };
 
