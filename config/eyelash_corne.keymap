@@ -1,8 +1,7 @@
-        default_layer {
-            display-name = "QWERTY_CZ";
-            bindings = <
-&kp TAB    &kp Q             &kp W             &cz_e EQUAL E              &kp R                 &kp T                               &kp UP                &kp Y            &cz_u SQT U      &cz_i#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 25
+/*
+eyelash_corne.keymap (DTS overlay)
+Ulož pod config/ jako eyelash_corne.keymap
+*/
 
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
@@ -14,7 +13,6 @@
 #include <dt-bindings/zmk/rgb.h>
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
-
 &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
 
 &msc {
@@ -62,6 +60,33 @@
             quick-tap-ms = <125>;
             bindings = <&kp>, <&kp>; // První parametr = HOLD, druhý = TAP
         };
+
+        td_colon: td_colon {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp LS(DOT)>, <&kp SLASH>, <&kp LS(RBKT)>; // :, /, *
+            tapping-term-ms = <200>;
+        };
+
+        // Čárka s 1
+        cz_comma: cz_comma {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        // Tečka s _
+        cz_dot: cz_dot {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     rgb_encoder: rgb_encoder {
@@ -83,9 +108,9 @@
         default_layer {
             display-name = "QWERTY_CZ";
             bindings = <
-&kp TAB    &kp Q             &kp W             &td_e                      &cz_ht GRAVE R        &cz_ht LS(SEMI) T                               &kp UP                &cz_ht N6 Y      &td_u            &cz_ht RBKT I    &cz_ht SEMI O    &kp P             &kp BSPC
-&td0       &cz_ht SQT A      &cz_ht N5 S       &cz_ht LS(EQUAL) D         &kp F                 &kp G                             &kp LEFT  &kp ENTER  &kp RIGHT  &kp H            &kp J            &kp K            &kp L            &td_colon         &kp SQT
-&kp LCTRL  &cz_ht N7 Z       &kp X             &cz_ht N4 C                &kp V                 &kp B                   &kp SPACE              &kp DOWN              &cz_ht LS(MINUS) N &kp M            &cz_ht LS(N1) COMMA &cz_ht LS(SLASH) DOT &kp FSLH         &kp ESC
+&kp TAB    &kp Q             &kp W             &td_e                      &cz_ht GRAVE R        &kp T                               &kp UP                &kp Y            &td_u            &cz_ht RBKT I    &kp O            &kp P             &kp BSPC
+&td0       &cz_ht SQT A      &cz_ht N5 S       &kp D                      &kp F                 &kp G                             &kp LEFT  &kp ENTER  &kp RIGHT  &kp H            &kp J            &kp K            &kp L            &td_colon         &kp SQT
+&kp LCTRL  &kp Z             &kp X             &kp C                      &kp V                 &kp B                   &kp SPACE              &kp DOWN              &kp N            &kp M            &cz_comma N1 COMMA &cz_dot UNDER DOT &kp FSLH         &kp ESC
                                                &kp LGUI                   &mo 1                 &lt 3 SPACE                                                        &lt 3 ENTER      &mo 2            &kp RALT
             >;
 
