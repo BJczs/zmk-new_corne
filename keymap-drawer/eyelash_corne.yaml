@@ -5,18 +5,18 @@ layers:
   - Q
   - W
   - '&td_e'
-  - {t: R, h: '`'}
+  - {t: R, h: '7'}
   - T
   - $$mdi:arrow-up-bold$$
   - Y
   - '&td_u'
-  - {t: I, h: ']'}
+  - {t: I, h: '='}
   - O
   - P
   - {t: '$$mdi:backspace$$', type: backspace}
   - '&td0'
-  - {t: A, h: ''''}
-  - {t: S, h: '5'}
+  - {t: A, h: '='}
+  - {t: S, h: '4'}
   - D
   - F
   - G
