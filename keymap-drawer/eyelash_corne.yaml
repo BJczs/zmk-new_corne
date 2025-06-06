@@ -6,18 +6,18 @@ layers:
   - W
   - '&td_e'
   - {t: R, h: '`'}
-  - {t: T, h: Sft+;}
+  - T
   - $$mdi:arrow-up-bold$$
-  - {t: Y, h: '6'}
+  - Y
   - '&td_u'
   - {t: I, h: ']'}
-  - {t: O, h: ;}
+  - O
   - P
   - {t: '$$mdi:backspace$$', type: backspace}
   - '&td0'
   - {t: A, h: ''''}
   - {t: S, h: '5'}
-  - {t: D, h: Sft+=}
+  - D
   - F
   - G
   - $$mdi:arrow-left-bold$$
@@ -30,17 +30,17 @@ layers:
   - '&td_colon'
   - {t: '''', s: '"'}
   - $$mdi:apple-keyboard-control$$
-  - {t: Z, h: '7'}
+  - Z
   - X
-  - {t: C, h: '4'}
+  - C
   - V
   - B
   - $$mdi:keyboard-space$$
   - $$mdi:arrow-down-bold$$
-  - {t: N, h: Sft+-}
+  - N
   - M
-  - {t: ',', h: Sft+1, s: <}
-  - {t: ., h: Sft+/, s: '>'}
+  - {t: ',', h: '1', s: <}
+  - {t: ., h: _, s: '>'}
   - {t: /, s: '?'}
   - $$mdi:keyboard-esc$$
   - LGUI
