@@ -108,8 +108,8 @@ Ulož pod config/ jako eyelash_corne.keymap
         default_layer {
             display-name = "QWERTY_CZ";
             bindings = <
-&kp TAB    &kp Q             &kp W             &td_e                      &cz_ht N7 R           &kp T                               &kp UP                &kp Y            &td_u            &cz_ht EQUAL I   &kp O            &kp P             &kp BSPC
-&td0       &cz_ht EQUAL A    &cz_ht N4 S       &kp D                      &kp F                 &kp G                             &kp LEFT  &kp ENTER  &kp RIGHT  &kp H            &kp J            &kp K            &kp L            &td_colon         &kp SQT
+&kp TAB    &kp Q             &kp W             &td_e                      &cz_ht N6 R           &kp T                               &kp UP                &kp Y            &td_u            &cz_ht N9 I      &kp O            &kp P             &kp BSPC
+&td0       &cz_ht N8 A       &cz_ht N3 S       &kp D                      &kp F                 &kp G                             &kp LEFT  &kp ENTER  &kp RIGHT  &kp H            &kp J            &kp K            &kp L            &td_colon         &kp SQT
 &kp LCTRL  &kp Z             &kp X             &kp C                      &kp V                 &kp B                   &kp SPACE              &kp DOWN              &kp N            &kp M            &cz_comma N1 COMMA &cz_dot UNDER DOT &kp FSLH         &kp ESC
                                                &kp LGUI                   &mo 1                 &lt 3 SPACE                                                        &lt 3 ENTER      &mo 2            &kp RALT
             >;
