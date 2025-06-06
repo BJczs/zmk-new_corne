@@ -89,7 +89,7 @@
             bindings = <
 &kp TAB    &kp Q             &kp W             &td_e                      &cz_ht GRAVE R        &cz_ht LS(SEMI) T                               &kp UP                &cz_ht N6 Y      &td_u            &cz_ht RBKT I    &cz_ht SEMI O    &kp P             &kp BSPC
 &td0       &cz_ht SQT A      &cz_ht N5 S       &cz_ht LS(EQUAL) D         &kp F                 &kp G                             &kp LEFT  &kp ENTER  &kp RIGHT  &kp H            &kp J            &kp K            &kp L            &td_colon         &kp SQT
-&kp LCTRL  &cz_ht N7 Z       &kp X             &cz_ht N4 C                &kp V                 &kp B                   &kp SPACE              &kp DOWN              &cz_ht LS(MINUS) N &kp M            &cz_ht LS(N1) COMMA &cz_ht LS(SLASH) DOT &cz_ht LS(EQUAL) MINUS &kp ESC
+&kp LCTRL  &cz_ht N7 Z       &kp X             &cz_ht N4 C                &kp V                 &kp B                   &kp SPACE              &kp DOWN              &cz_ht LS(MINUS) N &kp M            &cz_ht LS(N1) COMMA &cz_ht LS(SLASH) DOT &kp FSLH         &kp ESC
                                                &kp LGUI                   &mo 1                 &lt 3 SPACE                                                        &lt 3 ENTER      &mo 2            &kp RALT
             >;
 
