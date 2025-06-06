@@ -41,7 +41,7 @@ layers:
   - M
   - {t: ',', h: Sft+1, s: <}
   - {t: ., h: Sft+/, s: '>'}
-  - {t: '-', h: Sft+=, s: _}
+  - {t: /, s: '?'}
   - $$mdi:keyboard-esc$$
   - LGUI
   - NUMBER
