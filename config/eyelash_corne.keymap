@@ -1,4 +1,7 @@
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // 600
+        default_layer {
+            display-name = "QWERTY_CZ";
+            bindings = <
+&kp TAB    &kp Q             &kp W             &cz_e EQUAL E              &kp R                 &kp T                               &kp UP                &kp Y            &cz_u SQT U      &cz_i#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 25   // 10
 
 #include <input/processors.dtsi>
@@ -39,14 +42,14 @@
         td_e: td_e {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&kp N9>, <&kp N3>; // é, ě
+            bindings = <&kp E>, <&kp N9>, <&kp N3>; // E, é, ě
             tapping-term-ms = <200>;
         };
 
         td_u: td_u {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&kp EQUAL>, <&kp LS(N9)>; // ú, ů
+            bindings = <&kp U>, <&kp EQUAL>, <&kp LS(N9)>; // U, ú, ů
             tapping-term-ms = <200>;
         };
 
@@ -58,13 +61,6 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
             bindings = <&kp>, <&kp>; // První parametr = HOLD, druhý = TAP
-        };
-
-        td_colon: td_colon {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            bindings = <&kp LS(DOT)>, <&kp SLASH>, <&kp LS(RBKT)>; // :, /, *
-            tapping-term-ms = <200>;
         };
     };
 
